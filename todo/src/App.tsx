@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AddTask from './task/AddTask';
 import { Task } from './task/TaskList';
 import TaskList from './task/TaskList';
 import FilterTasks from './task/FilterTask';
-
+import './index.css'
 function TodoApp(useFilter="all") {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState(useFilter);
@@ -16,11 +16,11 @@ function TodoApp(useFilter="all") {
     setTasks(tasks.map((task:Task) => ((task.id) === id ? { ...task, text } : task)));
   };
 
-  const deleteTask = (id) => {
+  const deleteTask = (id:number) => {
     setTasks(tasks.filter((task:Task) => (task.id) !== id));
   };
 
-  const toggleTaskCompletion = (id) => {
+  const toggleTaskCompletion = (id:number) => {
     setTasks(tasks.map((task:Task) => ((task.id) === id ? { ...task, completed: !task.completed } : task)));
   };
 
@@ -38,7 +38,7 @@ function TodoApp(useFilter="all") {
     <div>
       <AddTask addTask={addTask} />
       <TaskList tasks={filteredTasks} editTask={editTask} deleteTask={deleteTask} toggleTaskCompletion={toggleTaskCompletion} />
-      <FilterTasks filter={filter} filterTasks={filterTasks} />
+      <FilterTasks filterTasks={filterTasks} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FilterTasks({ filter, filterTasks }) {
+function FilterTasks({ filterTasks }) {
   return (
     <div>
       <button onClick={() => filterTasks('all')}>All</button>

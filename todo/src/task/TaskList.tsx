@@ -16,7 +16,7 @@ function TaskList({ tasks, editTask, deleteTask, toggleTaskCompletion }:TaskList
     return (
         <ul>
           {tasks.map((task) => (
-            <li key={("link unavailable")}>
+            <li key={(task.id)}>
               <input
                 type="checkbox"
                 checked={task.completed}
